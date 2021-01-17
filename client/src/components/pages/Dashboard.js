@@ -4,7 +4,7 @@ import Gold from '../metals/gold.js';
 import Silver from '../metals/silver.js';
 import Crime from '../metals/crime.js';
 import Stock from '../metals/stock.js';
-import Map from '../map/MapChart.js';
+import SimpleMap from '../map/MapChart.js';
 import Meteroids from '../meteroids/meteroids.js';
 import Disasters from '../../components/disasters';
 import {ListItem} from '../list';
@@ -83,7 +83,7 @@ class Dashboard extends Component {
               src={process.env.PUBLIC_URL + '/assets/images/crime.png'}
               alt = 'map'/> Crime </h3>
               <ListItem>
-<Map/>
+
                 </ListItem>
               </div>
               <br></br>
