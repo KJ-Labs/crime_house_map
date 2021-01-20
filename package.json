@@ -39,7 +39,7 @@
     "node": "^15.2.1",
     "react-burger-menu": "^2.7.1",
     "react-google-charts": "^3.0.15",
-    "react-scripts": "^2.0.0",
+    "react-scripts": "2.1.8",
     "sequelize": "^6.3.5"
   }
 }
