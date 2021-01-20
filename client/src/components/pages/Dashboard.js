@@ -83,7 +83,7 @@ class Dashboard extends Component {
               src={process.env.PUBLIC_URL + '/assets/images/crime.png'}
               alt = 'map'/> Crime </h3>
               <ListItem>
-
+<SimpleMap/>
                 </ListItem>
               </div>
               <br></br>
