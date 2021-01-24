@@ -27,9 +27,9 @@ class Crime extends React.Component {
     return (
       <div>
         {this.state.apiResults.length ? (
-          <List>
+          <List >
             {this.state.apiResults.map((result) => (
-              <ListItem key={result.report_number}>
+              <ListItem key={result.offense_id}>
               Crime Name: {result.offense_parent_group} -
               Location: {result.mcpp}
 

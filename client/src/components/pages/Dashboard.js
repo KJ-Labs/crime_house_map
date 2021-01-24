@@ -82,21 +82,21 @@ class Dashboard extends Component {
               <h3 className="mb-3 mt-3" ><img
               src={process.env.PUBLIC_URL + '/assets/images/crime.png'}
               alt = 'map'/> Crime </h3>
-              <ListItem>
+
 <SimpleMap/>
-                </ListItem>
+
               </div>
               <br></br>
 
 
-              <div id="nasa"></div>
+              <div id="Crime"></div>
               <div className="card">
               <h3 className="mb-3 mt-3" ><img
               src={process.env.PUBLIC_URL + '/assets/images/crime.png'}
-              alt = 'meteroid'/> Crime </h3>
-              <ListItem>
+              alt = 'crime'/> Crime </h3>
+
                 <Crime />
-                </ListItem>
+
               </div>
               <br></br>
 
