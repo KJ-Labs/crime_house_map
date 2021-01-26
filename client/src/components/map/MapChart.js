@@ -33,6 +33,7 @@ export class SimpleMap extends Component {
     return (
         <Map
           google={this.props.google}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLEMAPS}}
           zoom={8}
           style={{ height: '100vh', width: '100%' }}
           initialCenter={{ lat: 47.444, lng: -122.176}}
@@ -44,6 +45,6 @@ export class SimpleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDjX4meNopLiNIfOqt3YoVAbCGJhM1xP4s'
+  apiKey: process.env.REACT_APP_GOOGLEMAPS
 })(SimpleMap);
 
