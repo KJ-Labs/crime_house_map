@@ -29,15 +29,18 @@
     "google-map-react": "^2.1.9",
     "if-env": "^1.0.4",
     "install": "^0.13.0",
+    "lodash.isempty": "^4.4.0",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",
     "node": "^15.2.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-burger-menu": "^2.7.1",
     "react-dom": "^17.0.1",
     "react-google-charts": "^3.0.15",
     "react-google-maps": "^9.4.5",
     "react-scripts": "^2.1.8",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "styled-components": "^5.2.1"
   }
 }
