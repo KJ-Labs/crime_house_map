@@ -1,19 +1,22 @@
 
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import places from "./places";
+import places from './crimedata.js'
 
 class MapView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+
     };
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
+
+
 
   handleMarkerClick = (props, marker, e) => {
     this.setState({
@@ -63,6 +66,7 @@ class MapView extends Component {
         >
           <div> <h6>{this.state.selectedPlace.offense}</h6>
          <p> {this.state.selectedPlace.offense_parent_group}</p>
+         <p> {this.state.selectedPlace.mcpp}</p>
          <p> {this.state.selectedPlace.report_datetime}</p>
 
 
@@ -77,7 +81,6 @@ class MapView extends Component {
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_GOOGLEMAPS
 })(MapView);
-
 
 
 

@@ -16,7 +16,7 @@ class Crime extends React.Component {
 
   loadImage() {
 
-    fetch('https://data.seattle.gov/resource/tazs-3rd5.json')
+    fetch('https://data.seattle.gov/resource/tazs-3rd5.json?offense_code=510')
       .then((response) => response.text())
   .then((result) => this.setState({apiResults: JSON.parse(result)}))
 
@@ -31,7 +31,8 @@ class Crime extends React.Component {
             {this.state.apiResults.map((result) => (
               <ListItem key={result.offense_id}>
               Crime Name: {result.offense_parent_group} -
-              Location: {result.mcpp}
+              Location: {result.mcpp} -
+              Date: {result.report_datetime}
 
 
 
