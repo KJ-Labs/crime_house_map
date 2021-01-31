@@ -1,76 +1,96 @@
-import React from 'react';
-import {GoogleMap, Marker, withGoogleMap, withScriptjs, InfoWindow} from 'react-google-maps';
-import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 
-const GoogleMapsWrapper = withScriptjs(withGoogleMap(props => {
-  const {onMapMounted, ...otherProps} = props;
-  return <GoogleMap {...otherProps} ref={c => {
-    onMapMounted && onMapMounted(c)
-  }}>{props.children}</GoogleMap>
-}));
+import React, { Component } from "react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import places from "./places";
 
-export default class MapPage extends React.Component {
-
-  state = {
-    markers: [],
-  };
-
-  componentDidMount() {
-    console.log('Mounted @ ' + Date.now());
-    const url = "https://data.seattle.gov/resource/tazs-3rd5.json";
-    fetch(url)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({markers: result});
-      });
+class MapView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
+    };
+    this.handleMarkerClick = this.handleMarkerClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
-  _mapRef = null;
-
-  _handleMapMounted = (c) => {
-    if (!c || this._mapRef) return;
-    this._mapRef = c;
-    console.log('Ref set later @ ' + Date.now());
+  handleMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: places[props.placeIndex],
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
   };
 
-  _handleBoundsChanged = () => {
-    if (!this._mapRef) return;
-    const center = this._mapRef.getCenter();
-    const bounds = this._mapRef.getBounds();
-    // console.log(center, bounds);
+  handleClose = () => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
   };
 
   render() {
     return (
-      <GoogleMapsWrapper
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=` + `${process.env.REACT_APP_GOOGLEMAPS}` + `&v=3.exp&libraries=geometry,drawing,places`}
-        loadingElement={<div style={{height: '100vh', width: '100%'}}/>}
-        containerElement={<div style={{height: '100vh', width: '100%'}}/>}
-        mapElement={<div style={{height: '100vh', width: '100%'}}/>}
-        defaultZoom={14}
-        defaultCenter={{lat: 47.6205, lng: -122.3493}}
-        onMapMounted={this._handleMapMounted}
-        onBoundsChanged={this._handleBoundsChanged}
-       >
-
-        <MarkerClusterer
-          averageCenter
-          enableRetinaIcons
-          gridSize={60}>
-          {this.state.markers.map(marker => (
+      <Map
+        google={this.props.google}
+        className={"map"}
+        initialCenter={{ lat: 47.6205, lng: -122.3493}}
+        zoom={this.props.zoom}
+        style={{ height: '100vh', width: '100%' }}
+      >
+        {places.map((place, i) => {
+          return (
             <Marker
-              key={marker.offense_id}
+              key={i}
+              onClick={this.handleMarkerClick}
               position={{
-                lat: parseFloat(marker.latitude),
-                lng: parseFloat(marker.longitude)
+                lat: parseFloat(place.latitude),
+                lng: parseFloat(place.longitude)
 
               }}
+              placeIndex={i}
+              name={place.offense}
             />
-          ))}
-        </MarkerClusterer>
+          );
+        })}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.handleClose}
+        >
+          <div> <h6>{this.state.selectedPlace.offense}</h6>
+         <p> {this.state.selectedPlace.offense_parent_group}</p>
+         <p> {this.state.selectedPlace.report_datetime}</p>
 
-      </GoogleMapsWrapper>
 
-    )
+
+          </div>
+        </InfoWindow>
+      </Map>
+    );
   }
 }
+
+export default GoogleApiWrapper({
+  apiKey: process.env.REACT_APP_GOOGLEMAPS
+})(MapView);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
