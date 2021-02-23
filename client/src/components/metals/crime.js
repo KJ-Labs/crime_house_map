@@ -16,7 +16,7 @@ class Crime extends React.Component {
 
   loadImage() {
 
-    fetch('https://data.seattle.gov/resource/tazs-3rd5.json?offense_code=510')
+    fetch('https://data.seattle.gov/resource/tazs-3rd5.json?$limit=25&$offset=25&$order=offense_id')
       .then((response) => response.text())
   .then((result) => this.setState({apiResults: JSON.parse(result)}))
 
