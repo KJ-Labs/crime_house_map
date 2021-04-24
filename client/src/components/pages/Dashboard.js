@@ -5,8 +5,6 @@ import Silver from '../metals/silver.js';
 import Crime from '../metals/crime.js';
 import Stock from '../metals/stock.js';
 import SimpleMap from '../map/MapChart.js';
-import Meteroids from '../meteroids/meteroids.js';
-import Disasters from '../../components/disasters';
 import {ListItem} from '../list';
 
 
