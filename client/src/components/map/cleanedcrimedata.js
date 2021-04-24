@@ -16,14 +16,22 @@ async function returnTrue() {
 
   // wait for the promise to resolve
   let result = await promise;
-  originalplaces.mcpp === 'MAGNOLIA' && result.longitude == '0E-9'   && result.longitude.replace("0E-9", "-122.385973723")
-  originalplaces.forEach(function(mcpp, i) { if (mcpp == 'MAGNOLIA') originalplaces[i] = '47.649387230'; });
+  // originalplaces.mcpp === 'MAGNOLIA' && originalplaces.longitude == '0E-9'   && originalplaces.longitude.replace("0E-9", "-122.385973723")
+  // originalplaces.forEach(function(mcpp, i) { if (mcpp == 'MAGNOLIA') originalplaces[i] = '47.649387230'; });
+  originalplaces.map(object => {
+
+    if (object.mcpp === 'MAGNOLIA' && object.longitude === '0E-9')
+
+     {  object.longitude = "-122.385973723"}
+
+
+  })
   places.push(...originalplaces)
 
 
 
 
-  console.log(places.mcpp === 'MAGNOLIA' && places.longitude === '0E-9'   && places.longitude.replace("0E-9", "-122.385973723"))
+  console.log(places)
   // console log the result (true)
   console.log(result);
 }
