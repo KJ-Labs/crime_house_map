@@ -2,12 +2,16 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
-import places from './crimedata.js'
+import places from './cleanedcrimedata.js'
+
+
+
 
 class MapView extends Component {
   constructor(props) {
     super(props)
     this.state = {
+
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -94,6 +98,7 @@ class MapView extends Component {
          <p> {this.state.selectedPlace.offense_parent_group}</p>
          <p> {this.state.selectedPlace.mcpp}</p>
          <p> {this.state.selectedPlace.report_datetime}</p>
+
 
 
 

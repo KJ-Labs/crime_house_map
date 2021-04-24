@@ -102,30 +102,9 @@ class Dashboard extends Component {
 
 
 
-              <div id="nasa"></div>
-              <div className="card">
-              <h3 className="mb-3 mt-3" ><img
-              src={process.env.PUBLIC_URL + '/assets/images/comet.png'}
-              alt = 'meteroid'/> Near Earth Events - Today </h3>
-                <Meteroids />
-              </div>
-              <br></br>
 
 
-              <br></br>
-              <div className="card" id="disaster">
-                <h3 className="mb-3 mt-3">
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + '/assets/images/disasters.png'
-                    }
-                    alt="disasters"
-                  />
-                  Disasters
-                </h3>
-                <Disasters></Disasters>
-              </div>
-              <br></br>
+
             </div>
           </div>
         </div>
