@@ -17,7 +17,7 @@ class Crime extends React.Component {
 
   loadImage() {
 
-    fetch('https://data.seattle.gov/resource/tazs-3rd5.json?crime_against_category=PERSON&mcpp=MAGNOLIA&offense_parent_group=SEX OFFENSES')
+    fetch('https://data.seattle.gov/resource/tazs-3rd5.json?$limit=50&$offset=20000&$order=offense_id')
       .then((response) => response.text())
   .then((result) => this.setState({apiResults: JSON.parse(result)}))
 
@@ -35,8 +35,8 @@ class Crime extends React.Component {
               Crime Name: {result.offense_parent_group} -
               Location: {result.mcpp} -
               Date: {result.report_datetime} -
-              Long: {result.mcpp === 'MAGNOLIA' && result.longitude == '0E-9'   && result.longitude.replace("0E-9", "-122.385973723")} -
-              Lat: {result.mcpp === 'MAGNOLIA' && result.latitude == '0E-9'  && result.latitude.replace("0E-9", "47.649387230")}
+              Long: {result.longitude} -
+              Lat: {result.latitude}
 
 
 

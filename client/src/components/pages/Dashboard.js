@@ -18,6 +18,7 @@ class Dashboard extends Component {
   }
 
   render() {
+
     return (
       <div>
         <div id="innerContainer">
@@ -80,6 +81,7 @@ class Dashboard extends Component {
               <h3 className="mb-3 mt-3" ><img
               src={process.env.PUBLIC_URL + '/assets/images/crime.png'}
               alt = 'map'/> Crime </h3>
+
               <SimpleMap/>
 
 </div>
