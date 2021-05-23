@@ -1,5 +1,5 @@
 const endpoint =
-  "https://data.seattle.gov/resource/tazs-3rd5.json?$limit=10&offense_parent_group=SEX%20OFFENSES";
+  "https://data.seattle.gov/resource/tazs-3rd5.json?$limit=200&$offset=20000&$order=offense_id";
 const originalplaces = [];
 const places = [];
 fetch(endpoint)
