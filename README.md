@@ -36,7 +36,7 @@ OR
 - [OKTA](https://www.okta.com/?utm_campaign=search_google_amer_us_ao_it_branded-okta_exact&utm_source=google&utm_medium=cpc&utm_term=okta&utm_page={url}&gclid=EAIaIQobChMIm96dr46u7QIVoj6tBh05_wo6EAAYASAAEgJsfPD_BwE)
 
 ## Installation
-Installation is not needed, as the entire application is on Heroku. Please use the General Account to login here > https://disaster-list-dashboard.herokuapp.com/Dashboard . (testaccount@gmail.com, GenericPassword12!)
+Installation is not needed, as the entire application is on Heroku. Please use the General Account to login here > https://home-safety-crime-app.herokuapp.com/ . (testaccount@gmail.com, GenericPassword12!)
 
 
 ## Usage
