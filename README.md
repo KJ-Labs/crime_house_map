@@ -11,7 +11,7 @@ Future state will be to allow end users to filter the crime sets.
 I utilized the crime API from the Seattle Governement [Seattle.Gov](https://data.seattle.gov/) 
 
 # Screenshots
-crime.PNG
+![Git](crime.PNG)  
 
 
 ## Links
