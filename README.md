@@ -6,9 +6,12 @@
 
 The below project is a personal project, just to help me see crimes in areas that I'm trying to find housing. Current crime apps only work if the latitude is filled out. However, for person crimes, they don't fill out the lat/long, but only the city. Therefore, I wanted a way to see which areas of Seattle have the most types of crime I'm worried about. 
 
+Future state will be to allow end users to filter the crime sets. 
+
 I utilized the crime API from the Seattle Governement [Seattle.Gov](https://data.seattle.gov/) 
 
-
+# Screenshots
+crime.png
 
 
 ## Links
